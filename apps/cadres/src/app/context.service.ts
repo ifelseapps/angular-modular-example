@@ -19,7 +19,6 @@ export type Features = Record<string, {
 @Injectable({
   providedIn: 'root'
 })
-// @ts-ignore
 export class ContextService {
   constructor(private _http: HttpClient) { }
 
