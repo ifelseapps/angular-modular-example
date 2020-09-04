@@ -12,6 +12,12 @@
       "sourceRoot": "apps/cadres/src",
       "prefix": "cadres",
       "architect": {
+        "features": {
+          "builder": "./tools/builders/features:features",
+          "options": {
+            "buildDir": "apps/cadres/src/assets"
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
@@ -198,6 +204,32 @@
           "options": {
             "jestConfig": "libs/api-interfaces/jest.config.js",
             "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "feature": {
+      "root": "libs/feature",
+      "sourceRoot": "libs/feature/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature/tsconfig.lib.json",
+              "libs/feature/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature/jest.config.js",
+            "tsConfig": "libs/feature/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
