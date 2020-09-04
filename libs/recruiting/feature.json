@@ -1,0 +1,8 @@
+{
+  "name": "Найм",
+  "version": "0.1.0",
+  "menu": {
+    "name": "Найм",
+    "path": "recruiting"
+  }
+}

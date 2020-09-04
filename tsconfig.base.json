@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cadres/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@cadres/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@cadres/feature": ["libs/feature/src/index.ts"],
+      "@cadres/recruiting": ["libs/recruiting/src/index.ts"],
+      "@cadres/staff": ["libs/staff/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

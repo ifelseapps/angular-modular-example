@@ -234,6 +234,58 @@
           }
         }
       }
+    },
+    "recruiting": {
+      "root": "libs/recruiting",
+      "sourceRoot": "libs/recruiting/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/recruiting/tsconfig.lib.json",
+              "libs/recruiting/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/recruiting/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/recruiting/jest.config.js",
+            "tsConfig": "libs/recruiting/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "staff": {
+      "root": "libs/staff",
+      "sourceRoot": "libs/staff/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/staff/tsconfig.lib.json",
+              "libs/staff/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/staff/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/staff/jest.config.js",
+            "tsConfig": "libs/staff/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

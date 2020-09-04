@@ -1,1 +1,1 @@
-{"feature":{"name":"Some feature","version":"1.1.0","menu":{"name":"Самая нужная фича","path":"/hello"}}}
+{"recruiting":{"name":"Найм","version":"0.1.0","menu":{"name":"Найм","path":"recruiting"}},"staff":{"name":"Персонал","version":"0.1.0","menu":{"name":"Персонал","path":"staff"}}}

@@ -5,4 +5,9 @@
     src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
   />
 </div>
-<div>Message: {{ hello$ | async | json }}</div>
+<ul>
+  <li *ngFor="let item of menu$ | async">
+    <a [routerLink]="item.path">{{item.name}}</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
