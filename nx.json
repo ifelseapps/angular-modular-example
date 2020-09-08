@@ -23,26 +23,37 @@
   },
   "projects": {
     "cadres": {
-      "tags": []
+      "tags": ["scope:app"],
+      "implicitDependencies": ["recruiting", "staff"]
     },
     "cadres-e2e": {
       "tags": [],
       "implicitDependencies": ["cadres"]
     },
     "api": {
-      "tags": []
+      "tags": ["scope:api"],
+      "implicitDependencies": ["api-interfaces"]
     },
     "api-interfaces": {
-      "tags": []
-    },
-    "feature": {
-      "tags": []
+      "tags": ["scope:api-interfaces"]
     },
     "recruiting": {
-      "tags": []
+      "tags": ["scope:recruiting"],
+      "implicitDependencies": ["core", "domain", "ui", "api-interfaces"]
     },
     "staff": {
-      "tags": []
+      "tags": ["scope:staff"],
+      "implicitDependencies": ["core", "domain", "ui", "api-interfaces"]
+    },
+    "core": {
+      "tags": ["scope:core"],
+      "implicitDependencies": ["api-interfaces", "ui"]
+    },
+    "domain": {
+      "tags": ["scope:domain"]
+    },
+    "ui": {
+      "tags": ["scope:ui"]
     }
   }
 }

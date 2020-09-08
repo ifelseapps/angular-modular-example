@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Route, Router, RouterModule } from '@angular/router';
 
+
 const routes: Route[] = [
   {
     path: 'recruiting',
