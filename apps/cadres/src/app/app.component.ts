@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@cadres/api-interfaces';
-import { ContextService } from './context.service';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { IContext, CONTEXT } from '@cadres/core';
 
 @Component({
   selector: 'cadres-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  constructor(private _context: ContextService) {}
+  constructor(@Inject(CONTEXT) private _context: IContext) {}
 
   readonly menu$ = this._context.getMenu$();
 }

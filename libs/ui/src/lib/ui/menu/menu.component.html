@@ -1,0 +1,8 @@
+<ul class="menu" [ngClass]="'menu_'+orientation">
+  <li class="menu__item" *ngFor="let item of items">
+    <a class="menu__link" [routerLink]="item.path">{{item.name}}</a>
+    <div class="menu__child" *ngIf="item.children && item.children.length">
+      <ui-menu orientation="vertical" [items]="item.children"></ui-menu>
+    </div>
+  </li>
+</ul>

@@ -1,1 +1,1 @@
-{"recruiting":{"name":"Найм","version":"0.1.0","menu":{"name":"Найм","path":"recruiting"}},"staff":{"name":"Персонал","version":"0.1.0","menu":{"name":"Персонал","path":"staff"}}}
+{"recruiting":{"name":"Найм","version":"0.1.0","menu":{"name":"Найм","path":"/recruiting","children":[{"name":"Соискатели","path":"/recruiting/applicants"}]}},"staff":{"name":"Персонал","version":"0.1.0","menu":{"name":"Персонал","path":"/staff"}}}
