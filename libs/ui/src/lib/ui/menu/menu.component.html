@@ -1,0 +1,10 @@
+<nav class="main-menu" #menu>
+  <ul class="main-menu__list">
+    <li class="main-menu__item" *ngFor="let item of items">
+      <a class="main-menu__link" [routerLink]="item.path">{{item.name}}</a>
+      <div class="main-menu__child" *ngIf="item.children && item.children.length">
+        <vertical-menu [items]="item.children"></vertical-menu>
+      </div>
+    </li>
+  </ul>
+</nav>

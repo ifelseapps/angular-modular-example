@@ -1,0 +1,20 @@
+.vertical-menu {
+  margin: 0;
+  padding: 0 0 1em;
+  list-style: none;
+  color: #000;
+
+  &__item {
+    padding: 0.4em 1em;
+    white-space: nowrap;
+    &:hover {
+      background: blue;
+      color: aliceblue;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+}

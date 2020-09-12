@@ -1,0 +1,46 @@
+.main-menu {
+  background: aliceblue;
+
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__child {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    background: #fff;
+  }
+
+  &__item {
+    position: relative;
+    &:not(:last-child) {
+      margin-right: 1em;
+    }
+
+    &_active {
+      background: blue;
+      color: aliceblue;
+    }
+
+    &_active .main-menu__child {
+      display: block;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 0.6em 1em;
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      background: blue;
+      color: aliceblue;
+    }
+  }
+}
