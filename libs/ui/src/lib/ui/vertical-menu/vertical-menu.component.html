@@ -1,0 +1,6 @@
+<ul class="vertical-menu">
+  <li class="vertical-menu__item" *ngFor="let item of items">
+    <a class="vertical-menu__link" [routerLink]="item.path">{{item.name}}</a>
+    <vertical-menu *ngIf="item.children && item.children.length" [items]="item.children"></vertical-menu>
+  </li>
+</ul>
