@@ -10,6 +10,13 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 exports.__esModule = true;
 var architect_1 = require("@angular-devkit/architect");
 var rxjs_1 = require("rxjs");
@@ -24,7 +31,9 @@ exports["default"] = architect_1.createBuilder(function (options, context) {
         return (__assign(__assign({}, acc), (_a = {}, _a[feature] = getFeatureConfig(feature), _a)));
     }, {});
     var buildDir = path.resolve(__dirname, '../../../', options.buildDir);
-    fs.writeFileSync(path.resolve(buildDir, 'features.json'), JSON.stringify(config));
+    fs.writeFileSync(path.resolve(buildDir, 'assets', 'features.json'), JSON.stringify(config));
+    context.logger.info("Build app-routing.module.ts ...");
+    fs.writeFileSync(path.resolve(buildDir, 'app', 'app-routing.module.ts'), getRoutingModule(config));
     return new rxjs_1.Observable(function (observer) {
         observer.next({ success: true });
         observer.complete();
@@ -40,4 +49,13 @@ function getFeatures() {
 function getFeatureConfig(feature) {
     var configPath = path.resolve(featuresDir, feature, 'feature.json');
     return JSON.parse(fs.readFileSync(configPath).toString());
+}
+function getRoutingModule(config) {
+    var header = "\nimport { NgModule } from '@angular/core';\nimport { Route, RouterModule } from '@angular/router';\nimport { CommonModule } from '@angular/common';\n  ";
+    var footer = "\n@NgModule({\n  imports: [CommonModule, RouterModule.forRoot(routes)],\n  exports: [RouterModule],\n})\nexport class AppRoutingModule {}\n  ";
+    var routes = Object.keys(config).reduce(function (acc, featureId) { return __spreadArrays(acc, [
+        "\n    {\n      path: '" + featureId + "',\n      loadChildren: () => import('" + config[featureId].module.path + "').then(m => m." + config[featureId].module.name + "),\n    },\n    "
+    ]); }, []);
+    var body = "const routes: Route[] = [" + routes.join("\n") + "];";
+    return [header, body, footer].join("\n");
 }

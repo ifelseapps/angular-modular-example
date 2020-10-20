@@ -15,7 +15,7 @@
         "features": {
           "builder": "./tools/builders/features:features",
           "options": {
-            "buildDir": "apps/cadres/src/assets"
+            "buildDir": "apps/cadres/src"
           }
         },
         "build": {

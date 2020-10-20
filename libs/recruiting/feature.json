@@ -1,6 +1,10 @@
 {
   "name": "Найм",
   "version": "0.1.0",
+  "module": {
+    "path": "@cadres/recruiting",
+    "name": "RecruitingModule"
+  },
   "menu": {
     "name": "Найм",
     "path": "/recruiting",

@@ -1,6 +1,10 @@
 {
   "name": "Персонал",
   "version": "0.1.0",
+  "module": {
+    "path": "@cadres/staff",
+    "name": "StaffModule"
+  },
   "menu": {
     "name": "Персонал",
     "path": "/staff"
